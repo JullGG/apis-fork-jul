@@ -2,7 +2,7 @@ const axios = require('axios');
 
 async function blackboxAIChat(message) {
   try {
-    const response = await axios.post('https://www.blackbox.ai/api/chat', {
+    const response = await axios.post('https://deepenglish.com/wp-json/ai-chatbot/v1/chat', {
       messages: [{ id: null, content: message, role: 'user' }],
       id: null,
       previewToken: null,
