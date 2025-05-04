@@ -112,6 +112,24 @@ app.get('/api/blackboxAIChat', async (req, res) => {
   }
 });
 
+app.get('/api/ytdl', async (req, res) => {
+  try {
+    const message = req.query.message;
+    if (!message) {
+      return res.status(400).json({ error: 'Parameter "message" tidak ditemukan' });
+    }
+    const response = await ptz.ytdl(message);
+    res.status(200).json({
+      status: 200,
+      creator: "jul",
+      data: { response }
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 app.get("/api/gpt", async (req, res) => {
 const text = req.query.text;
 
